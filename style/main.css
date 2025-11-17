@@ -109,6 +109,8 @@ body {
   display: inline-block;
   max-width: 20%; /* This width was on .six img */
   height: auto;
+  left: 5%;
+  /* transform: translateX(-50%); */
 }
 
 /* This is the profile pic INSIDE the wrapper */
