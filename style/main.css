@@ -47,7 +47,8 @@ body {
   margin: 0 auto;
   padding: 10px;
   position: relative;
-  width: 800px;
+  max-width: 800px; /* <--- CHANGE */
+  width: 90%;       /* <--- ADD THIS */
   white-space: pre-wrap;
 }
 
@@ -102,19 +103,30 @@ body {
   z-index: 1;
 }
 
-.six img {
+/* This is the new wrapper we added */
+.profile-pic-container {
+  position: relative; /* This is the new anchor for the hat */
   display: inline-block;
-  max-width: 20%; /* Adjust the percentage to make the image smaller */
-  height: auto; /* Ensures the aspect ratio is maintained */
+  max-width: 20%; /* This width was on .six img */
+  height: auto;
+}
+
+/* This is the profile pic INSIDE the wrapper */
+.profile-pic-container .profile-picture {
+  display: block; /* Makes it fill the wrapper */
+  width: 100%;
+  height: auto;
 }
 
 
-.six .hat {
-  left: 41.5%;
+.profile-pic-container .hat {
   position: absolute;
-  /* transform: scale(0.1); */
-  top: -35%;
   width: 80px;
+  
+  /* --- NEW POSITIONING --- */
+  top: 10px;  /* Places it 30px *above* the pic */
+  left: 38%;   /* Centers it horizontally */
+  transform: translateX(-50%); /* Fine-tunes the centering */
 }
 
 .baloons img {
@@ -228,9 +240,9 @@ body {
 
 /* Media Queries */
 @media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 40%;
-  }
+  .profile-pic-container {
+  max-width: 80%;
+}
 
   .six img {
     display: inline-block;
@@ -240,35 +252,55 @@ body {
 }
 
 @media screen and (max-height: 800px) {
-  .six .hat {
-    left: 37%;
-  }
+  .profile-pic-container {
+  max-width: 70%;
+}
 }
 
 @media screen and (max-height: 700px) {
-  .six .hat {
+  .profile-pic-container .hat {
     left: 32%;
   }
 }
 
 @media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
+  .profile-pic-container .hat {
     left: 32%;
   }
 }
 
+/* Replace your old @media (max-width: 500px) block with this */
 @media screen and (max-width: 500px) {
   .container {
     width: 90%;
   }
 
+  .one {
+    font-size: 2.5rem; /* Down from 4.5rem */
+  }
+
+  .three {
+    font-size: 2rem; /* Down from 3rem */
+  }
+
   .four .text-box {
     width: 90%;
+    white-space: normal; /* Allows text to wrap on mobile */
   }
 
   .text-box .fake-btn {
-    bottom: -38px;
-    right: 5px;
+    bottom: -50px; /* Puts it below the box */
+    right: 5px;    /* Aligns it to the right */
+    left: auto;    /* Resets the desktop 'left' property */
+    margin-left: 0;  /* Resets the desktop 'margin-left' */
+  }
+
+  .five p {
+    font-size: 1.5rem; /* Down from 2rem */
+  }
+
+  .five .idea-5 {
+    font-size: 2.5rem; /* Down from 4rem */
   }
 
   .idea-5 span {
@@ -276,11 +308,16 @@ body {
   }
 
   .idea-6 span {
-    font-size: 10rem;
+    font-size: 7rem; /* Down from 15rem */
   }
 
-  .six .hat {
-    /* top: -20px; */
+  .profile-pic-container {
+  max-width: 70%;
+}
+
+
+  .profile-pic-container .hat {
+    left: 38%; /* Adjust hat position (tweak as needed) */
     width: 50px;
   }
 
@@ -294,6 +331,5 @@ body {
 
   .nine p {
     font-size: 1.5rem;
-    font-weight: lighter;
   }
 }

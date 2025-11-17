@@ -105,6 +105,26 @@
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
 }
+@media screen and (max-width: 500px) {
+  #countdown-content h1 {
+    font-size: 1.8rem;
+  }
+  #countdown-content h2 {
+    font-size: 1.2rem;
+  }
+  #timer {
+    font-size: 1.5rem;
+    /* Allows timer blocks to wrap if needed */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #timer span {
+    padding: 10px 5px;
+    min-width: 60px; /* Ensure they still have some width */
+    margin: 3px;
+  }
+}
   </style>
 </head>
 
@@ -176,11 +196,14 @@
       </div>
 
       <div class="six">
-        <img src="./img/anika.png" alt="profile" class="profile-picture" id="imagePath" />
+        <div class="profile-pic-container">
+          <img src="./img/anika.png" alt="profile" class="profile-picture" id="imagePath" />
+          <img src="img/hat.png" alt="birthday hat" class="hat" />
+        </div>
         <div class="wish">
           <h3 class="wish-hbd">Happy Birthday!</h3>
           <h5 id="wishText-1">May your eyes always light up when you see me ;)</h5>
-          <h5 id="wishText-2">May you be horny whenever you see me ;)</h5>
+          <!-- <h5 id="wishText-2">May you be horny whenever you see me ;)</h5>
           <h5 id="wishText-3">May your lips always crave mine ;)</h5>
           <h5 id="wishText-4">May your body always respond to my touch ;)</h5>
           <h5 id="wishText-5">May your panties drop whenever we're alone ;)</h5>
@@ -192,7 +215,7 @@
           <h5 id="wishText-13">May your dreams always be filled with me ;)</h5>
           <h5 id="wishText-14">May your neck always wear the marks of my love ;) ;)</h5>
           <h5 id="wishText-15">May your skin always crave my kisses ;)</h5>
-          <h5 id="wishText-16">May your neck always carry symbol of our love ;)</h5>
+          <h5 id="wishText-16">May your neck always carry symbol of our love ;)</h5> -->
         </div>
       </div>
 
