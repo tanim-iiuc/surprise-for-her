@@ -21,8 +21,22 @@
 
 // animation timeline
 const animationTimeline = () => {
-    // split chars that needs to be animated individually
+    const wishes = [
+        "Happy Birthday to the person who has been my compass for as long as I can remember. From those early days in school where I was just learning to find my footing, to my graduation and the complex professional world beyond, you have always been there lighting the path. I know I haven't always been the easiest student to guide, and perhaps I haven't yet become the disciple you envisioned, but please know that my failures to be perfect never diminished my respect for you. You are more than a teacher; you are the big brother who taught me how to walk through life with dignity. I am endlessly grateful for your patience, your lessons, and the way you’ve shaped who I am today.",
+
+        "Wishing you the happiest of birthdays. As I look back on everything we have shared, I realize how rare this bond truly is. You have played the roles of mentor, teacher, and big brother all at once, carrying the weight of my future on your shoulders. I know we have had our share of misunderstandings and differences; I know there were times I might have disappointed you or when communication failed us. But beneath all of that lies a foundation of admiration and love that is unshakeable. Thank you for never giving up on me, even when things were difficult. I respect you in my own way, more than words can often say, and I hope this year brings you the peace and pride you deserve.",
+
+        "Happy Birthday, sir. It is impossible to sum up so many years of guidance in a single message, but I want to try. You took a young, unpolished version of me and patiently chipped away at the rough edges, guiding me from the classroom to where I stand today. I carry your lessons in everything I do. While I may not always express it perfectly, and while we may view the world differently at times, my gratitude for your presence in my life is absolute. You are the standard I aspire to, even if I stumble along the way. Thank you for being the big brother who chastises when necessary but protects always. May your day be filled with the same immense value you bring to my life.",
+
+        "On your special day, I want to take a moment to express the things I often leave unsaid. You have been the architect of my academic and personal growth, standing by me from my earliest school memories to my biggest milestones. I know our journey hasn't been a straight line—we have faced our share of friction and silence, but please never doubt the depth of my regard for you. I may not be the perfect reflection of your teachings, but I am a product of your care. I admire your strength, your wisdom, and your heart. Happy Birthday to a mentor who is truly family. I hope to one day make you as proud as I am to know you.",
+
+        "Happy Birthday to my lifelong mentor. Looking back at the distance we have traveled from my school days to now, I am overwhelmed by how much you have given me. You stepped in as a big brother when I needed direction and as a strict teacher when I needed discipline. I carry a quiet regret that I couldn't always be the student or disciple you could be seamlessly proud of, yet I hope you can see the effort I make to honor your guidance. Our differences only make my respect for you more profound because you stuck by me despite them. Thank you for leading the way, today and always. I love and respect you deeply."
+    ];
+
+    // Pick a random wish
+    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
     const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+    textBoxChars.innerText = randomWish;
     const hbd = document.getElementsByClassName("wish-hbd")[0];
 
     textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
