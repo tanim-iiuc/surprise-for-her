@@ -14,6 +14,36 @@
 
   <style>
     /* Basic styles for the countdown */
+    .audio-btn {
+  position: fixed;
+  bottom: 60px; /* Placed above the footer */
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.audio-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.audio-btn:active {
+  transform: scale(0.9);
+}
     #countdown-content {
       display: none; /* Hidden by default, shown by script */
       flex-direction: column;
@@ -140,12 +170,14 @@
       <span id="seconds">0<span class="unit-label">seconds</span></span>
     </div>
   </div>
-
+<button id="audio-control" class="audio-btn" title="Toggle Music">
+  <span id="audio-icon">🔈</span>
+</button>
 
   <div id="birthday-content" style="display: none;">
 
     <audio class="song" loop>
-      <source src="./music/memories.mp3">
+      <source src="./music/perfect.mp3">
       </source>
       Your browser isn't invited for super fun audio time.
     </audio>
@@ -154,9 +186,9 @@
       <div class="one">
         <h1 class="one">
           Hi
-          <span id="name">Shihab Sir,</span>
+          <span id="name">Sumaiya,</span>
         </h1>
-        <p class="two" id="greetingText">A lifelong brother which transforms lives.</p>
+        <p class="two" id="greetingText">A sweet voice that can never sing for me.</p>
       </div>
 
       <div class="three">
@@ -191,7 +223,7 @@
 
       <div class="six">
         <div class="profile-pic-container">
-          <img src="./img/us.jpg" alt="profile" class="profile-picture" id="imagePath" />
+          <img src="./img/wallpaper.jpg" alt="profile" class="profile-picture" id="imagePath" />
           <!-- <img src="img/hat.png" alt="birthday hat" class="hat" /> -->
         </div>
         <div class="wish">
@@ -418,6 +450,27 @@
 
         }, 1000);
       }
+// --- Audio Control Logic ---
+const audioBtn = document.getElementById('audio-control');
+const audioIcon = document.getElementById('audio-icon');
+const song = document.querySelector('.song');
+
+audioBtn.addEventListener('click', () => {
+  if (song.paused) {
+    song.play();
+    audioIcon.innerText = '🔊'; // Playing icon
+    audioBtn.style.background = 'rgba(255, 255, 255, 0.4)';
+  } else {
+    song.pause();
+    audioIcon.innerText = '🔈'; // Paused icon
+    audioBtn.style.background = 'rgba(255, 255, 255, 0.2)';
+  }
+});
+
+// Update icon if music starts via the SweetAlert popup
+song.onplay = () => {
+  audioIcon.innerText = '🔊';
+};
     })();
   </script>
 
